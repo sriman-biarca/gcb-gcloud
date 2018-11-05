@@ -10,7 +10,7 @@ steps:
 
 
 - name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
-  args: ['-c', 'cd dep-manager-code && ls']
-  #args: ['deployment-manager', 'deployments', 'create', 'test', '--config', 'dep-manager-code/service-account/service_account.yaml']
+  #entrypoint: 'bash'
+  #args: ['-c', 'cd dep-manager-code && ls']
+  args: ['deployment-manager', 'deployments', 'create', 'test', '--config', 'dep-manager-code/service-account/service_account.yaml']
   waitFor: ['git']
