@@ -10,11 +10,16 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: gcloud_vm
   entrypoint: 'bash'
-  args: ['-c', "" ]
+  args: ['compute instances create example-instance-1 --zone us-central1-a' ]
   
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: gcloud_vm2
+  entrypoint: 'bash'
+  args: ['-c', './create_vm.sh' ]
+      
 # Copy sample file
 - name: 'gcr.io/cloud-builders/gsutil'
   id: copy
-  entrypoint: 'bash'
-  args: ['-c', "source .cloudbuild/.mvnbuildexitcoderc; \
-         source .cloudbuild/.mvnbuildidrc; .cloudbuild/upload_mvn_build_test_report.sh"]
+  env: ['BUCKET_NAME=terraform-tfstate']
+  args: ['cp', 'create_vm.sh', 'gs://$BUCKET_NAME/create_vm.sh']
