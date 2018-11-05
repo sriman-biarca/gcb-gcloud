@@ -3,10 +3,14 @@
 steps:
 # Clone a public repo.
 - name: 'gcr.io/$PROJECT_ID/git'
+  id: git
   args: ['clone', 'https://github.com/sriman-biarca/dep-manager-code.git']
   dir: 'dep-manager-code'
 
 
 
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['deployment-manager', 'deployments', 'create', 'test', '--config', 'dep-manager-code/service-account/service_account.yaml']
+  entrypoint: 'bash'
+  args: ['-c', 'ls']
+  #args: ['deployment-manager', 'deployments', 'create', 'test', '--config', 'dep-manager-code/service-account/service_account.yaml']
+  waitFor: ['git']
