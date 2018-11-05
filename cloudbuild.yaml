@@ -9,4 +9,4 @@ steps:
 
 
 - name: 'gcr.io/$PROJECT_ID/gcloud'
-  args: ['deployment-manager', ',deployments', 'create', 'test', '--config', dep-manager-code/service-account/service_account.yaml']
+  args: ['deployment-manager', 'deployments', 'create', 'test', '--config', 'dep-manager-code/service-account/service_account.yaml']
