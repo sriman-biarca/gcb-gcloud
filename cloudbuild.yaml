@@ -10,7 +10,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: gcloud_vm2
   entrypoint: 'bash'
-  args: ['cd /workspace && ls -la']
+  args: ['ls']
 
 # Copy sample file
 - name: 'gcr.io/cloud-builders/gsutil'
