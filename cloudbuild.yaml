@@ -5,12 +5,12 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/git'
   id: git
   args: ['clone', 'https://github.com/sriman-biarca/dep-manager-code.git']
-  dir: 'dep-manager-code'
+  #dir: 'dep-manager-code'
 
 
 
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: ['-c', 'cd dep-manager-code/dep-manager-code && ls']
+  args: ['-c', 'cd dep-manager-code && ls']
   #args: ['deployment-manager', 'deployments', 'create', 'test', '--config', 'dep-manager-code/service-account/service_account.yaml']
   waitFor: ['git']
