@@ -9,7 +9,6 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: gcloud_vm
-  entrypoint: 'bash'
   args: ['compute instances create example-instance-1 --zone us-central1-a' ]
   
 
