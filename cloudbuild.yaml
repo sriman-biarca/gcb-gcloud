@@ -10,7 +10,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   id: gcloud_vm2
   entrypoint: 'bash'
-  args: ['ls -la && chmod u+x create_vm.sh && bash ./create_vm.sh' ]
+  args: ['ls -la' ]
 
 # Copy sample file
 - name: 'gcr.io/cloud-builders/gsutil'
