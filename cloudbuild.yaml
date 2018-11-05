@@ -16,9 +16,4 @@ steps:
 - name: 'gcr.io/cloud-builders/gsutil'
   id: copy
   env: ['BUCKET_NAME=tfstate-backup']
-  args: ['cp', 'create_vm.sh', 'gs://$BUCKET_NAME/create_vm.sh']
-
-
-- name: 'gcr.io/cloud-builders/gcloud'
-  id: gcloud_vm
-  args: ['compute instances create example-instance-1 --zone us-central1-a' ]
+  args: ['cp', 'create_vm.sh', 'gs://tfstate-backup/create_vm.sh']
