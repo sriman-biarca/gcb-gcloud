@@ -1,0 +1,20 @@
+#Build Steps
+
+steps:
+
+# Prints info
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: gcloud
+  args: ['info']
+
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: gcloud_vm
+  entrypoint: 'bash'
+  args: ['-c', "" ]
+  
+# Copy sample file
+- name: 'gcr.io/cloud-builders/gsutil'
+  id: copy
+  entrypoint: 'bash'
+  args: ['-c', "source .cloudbuild/.mvnbuildexitcoderc; \
+         source .cloudbuild/.mvnbuildidrc; .cloudbuild/upload_mvn_build_test_report.sh"]
