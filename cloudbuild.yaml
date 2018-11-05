@@ -7,9 +7,16 @@ steps:
   id: gcloud
   args: ['info']
 
+# creates ins using CLI
 - name: 'gcr.io/cloud-builders/gcloud'
   id: gcloud_vm
-  args: ['compute', 'instances', 'create', 'example-instance-1', '--zone', 'us-central1-a']
+  args: ['compute', 'instances', 'create', '${_INS_NAME}', '--zone', 'us-central1-a']
+
+# creates ins using Shell
+- name: 'gcr.io/cloud-builders/gcloud'
+  id: gcloud_vm2
+  entrypoint: 'bash'
+  args: ['-c', 'chmod +x create_vm.sh && ./create_vm.sh']
   
 # Copy sample file
 - name: 'gcr.io/cloud-builders/gsutil'
@@ -18,3 +25,4 @@ steps:
 
 substitutions:
     _BUCKET_NAME: tfstate-backup # default value
+    _INS_NAME: example-instance-1
