@@ -9,7 +9,7 @@ steps:
 
 - name: 'gcr.io/cloud-builders/gcloud'
   id: gcloud_vm
-  args: ['compute instances create example-instance-1 --zone us-central1-a' ]
+  args: ['compute', 'instances', 'create', 'example-instance-1', '--zone', 'us-central1-a']
   
 # Copy sample file
 - name: 'gcr.io/cloud-builders/gsutil'
